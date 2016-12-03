@@ -89,6 +89,7 @@
             if (CanCast)
             {
                 w.Cast(position);
+                Console.WriteLine("public if CanCast W cast")
                 lastTimeCast = Game.Time;
             }
         }
@@ -101,6 +102,7 @@
             }
 
             Cast(target.Position);
+            Console.WriteLine("target null, cast")
         }
 
         public void Switch()
@@ -108,6 +110,7 @@
             if (CanSwitch)
             {
                 w.Cast();
+                Console.WriteLine("if CanSwitch, cast")
             }
         }
 
@@ -179,6 +182,7 @@
                     if (target != null)
                     {
                         e.Cast();
+                        Console.WriteLine("combo shadow use e")
                     }
                 }
             }
@@ -242,6 +246,7 @@
                     if (target != null)
                     {
                         e.Cast();
+                        Console.WriteLine("shadow haras use e && ready")
                     }
                 }
             }
