@@ -44,7 +44,7 @@
                                && enemy.IsValidTarget())))
             {
                 e.Cast();
-                Console.WriteLine("auto e");
+                Console.WriteLine("auto e1");
             }
         }
     }

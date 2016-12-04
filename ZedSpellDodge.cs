@@ -39,6 +39,7 @@
             {
                 int delay = (int) Math.Truncate((double)(player.Distance(sender) / args.SData.MissileSpeed)) - 1;
                 Utility.DelayAction.Add(delay, () => { r.Cast(TargetSelector.GetTarget(r.Range, r.DamageType)); });
+                Console.WriteLine("r dodge");
             }
         }
     }

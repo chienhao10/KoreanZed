@@ -8,6 +8,7 @@
     using LeagueSharp.Common;
 
     using SharpDX;
+    using System;
 
     class ZedAntiGapCloser
     {
@@ -59,6 +60,7 @@
             if (zedMenu.GetParamBool("koreanzed.miscmenu.useeantigc") && e.IsReady())
             {
                 e.Cast();
+                Console.WriteLine("antig1");
             }
 
             if (zedMenu.GetParamBool("koreanzed.miscmenu.usewantigc") && w.IsReady() && antiGapCloserList.Count == 0)
@@ -88,6 +90,7 @@
                         )
                     {
                         shadows.Switch();
+                        Console.WriteLine("antig2");
                     }
                    
                 }
