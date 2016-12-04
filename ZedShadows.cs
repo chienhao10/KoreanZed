@@ -118,13 +118,8 @@
         {
             List<Obj_AI_Base> resultList = new List<Obj_AI_Base>();
 
-            foreach (Obj_AI_Base objAiBase in ObjectManager.Get<Obj_AI_Base>().OrderBy(o => o.Distance(Game.CursorPos)))
-            {
-                Console.Write(objAiBase.ToString());
-            }
-
             foreach (Obj_AI_Base objAiBase in 
-                ObjectManager.Get<Obj_AI_Base>().Where(obj => obj.SkinName.ToLowerInvariant().Equals("shadow") && !obj.IsDead))
+                ObjectManager.Get<Obj_AI_Base>().Where(obj => obj.SkinName.ToLowerInvariant().Equals("Shadow") && !obj.IsDead))
             {
                 resultList.Add(objAiBase);
             }
