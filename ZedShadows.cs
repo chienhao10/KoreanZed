@@ -118,8 +118,9 @@
         {
             List<Obj_AI_Base> resultList = new List<Obj_AI_Base>();
 
-            foreach (Obj_AI_Base objAiBase in 
-                ObjectManager.Get<Obj_AI_Base>().Where(obj => obj.SkinName.ToLowerInvariant().Equals("Shadow") && !obj.IsDead))
+            foreach (Obj_AI_Base objAiBase in
+                ObjectManager.Get<Obj_AI_Base>().Where(x => x.IsVisible && x.IsAlly && x.Name == "Shadow" && !x.IsDead))
+               // ObjectManager.Get<Obj_AI_Base>().Where(obj => obj.SkinName.ToLowerInvariant().Equals("Shadow") && !obj.IsDead))
             {
                 resultList.Add(objAiBase);
             }
