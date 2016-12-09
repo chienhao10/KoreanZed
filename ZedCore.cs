@@ -153,11 +153,11 @@
                     {
                         case ComboType.AllStar:
                             AllStarCombo(target);
-                            Console.WriteLine("start combo 1");
+                            //Console.WriteLine("start combo 1");
                             break;
                         case ComboType.TheLine:
                             TheLineCombo(target);
-                            Console.WriteLine("line combo1");
+                            //Console.WriteLine("line combo1");
                             break;
                     }
                     return;
@@ -190,7 +190,7 @@
                         () => player.Distance(target) <= Orbwalking.GetRealAutoAttackRange(target),
                         () => player.IssueOrder(GameObjectOrder.AttackUnit, target),
                         () => target.IsDead || target.IsZombie || player.Distance(target) > Orbwalking.GetRealAutoAttackRange(target) || checkAutoAttack.Status);
-                    Console.WriteLine("combo3 else");
+                    //Console.WriteLine("combo3 else");
                     return;
                 }
             }
@@ -205,7 +205,7 @@
                 if (predictionOutput.Hitchance >= HitChance.Medium)
                 {
                     q.Cast(predictionOutput.CastPosition);
-                    Console.WriteLine("combo q");
+                    //Console.WriteLine("combo q");
                 }
             }
 
@@ -219,7 +219,7 @@
                         () => e.IsReady(),
                         () => e.Cast(),
                         () => true);
-                    Console.WriteLine("combo e");
+                    //Console.WriteLine("combo e");
                     return;
                 }
             }
@@ -236,7 +236,7 @@
                         objAiBase.Distance(target) < player.Distance(target))
                     {
                         shadows.Switch();
-                        Console.WriteLine("combo w");
+                        //Console.WriteLine("combo w");
                     }
                 }
             }
@@ -273,7 +273,7 @@
                 () => w.Instance.ToggleState != 0 && e.UseOnCombo && e.IsReady() && e.CanCast(target),
                 () => e.Cast(),
                 () => target.IsDead || target.IsZombie || w.Instance.ToggleState == 0 || !e.IsReady() || !e.UseOnCombo || !e.CanCast(target));
-            Console.WriteLine("star combo2");
+            //Console.WriteLine("star combo2");
         }
 
         private void TheLineCombo(Obj_AI_Hero target)
@@ -307,7 +307,7 @@
                 () => q.UseOnCombo && q.IsReady() && q.CanCast(target),
                 () => q.Cast(q.GetPrediction(target).CastPosition),
                 () => target.IsDead || target.IsZombie || !q.IsReady() || !q.UseOnCombo || !q.CanCast(target) || player.Mana <= q.ManaCost);
-            Console.WriteLine("line combo2");
+            //Console.WriteLine("line combo2");
         }
 
         private void Harass()
@@ -341,12 +341,12 @@
                     {
                         case ShadowHarassTrigger.MaxRange:
                             maxRange = Math.Min(maxRange, q.Range + w.Range);
-                            Console.WriteLine("haras 1");
+                            //Console.WriteLine("haras 1");
                             break;
 
                         case ShadowHarassTrigger.MaxDamage:
                             maxRange = Math.Min(maxRange, w.Range + e.Range);
-                            Console.WriteLine("haras 2");
+                            //Console.WriteLine("haras 2");
                             break;
                     }
 
@@ -364,7 +364,7 @@
                             () => true,
                             () => shadows.Harass(),
                             () => true);
-                        Console.WriteLine("haras balck list");
+                        //Console.WriteLine("haras balck list");
                         return;
                     }
                 }
@@ -386,7 +386,7 @@
                             () => true,
                             () => shadows.Harass(),
                             () => true);
-                        Console.WriteLine("haras black list else");
+                        //Console.WriteLine("haras black list else");
                         return;
                     }
                 }
@@ -410,7 +410,7 @@
                                 new List<Vector2>() { predictionOutput.CastPosition.To2D() }).Any()))
                     {
                         q.Cast(predictionOutput.CastPosition);
-                        Console.WriteLine("has q");
+                        //Console.WriteLine("has q");
                     }
                 }
             }
@@ -420,7 +420,7 @@
                 if (TargetSelector.GetTarget(e.Range, e.DamageType) != null)
                 {
                     e.Cast();
-                    Console.WriteLine("has e");
+                    //Console.WriteLine("has e");
                 }
             }
 
@@ -429,7 +429,7 @@
                 (HeroManager.Enemies.Any(enemy => player.Distance(enemy) <= player.AttackRange)))
             {
                 actionQueue.EnqueueAction(harasQueue, () => true, () => zedItems.UseHarasItems(), () => true);
-                Console.WriteLine("hydra tiamat haras");
+                //Console.WriteLine("hydra tiamat haras");
             }
 
             LastHit();
@@ -449,7 +449,7 @@
                 if (jungleMob != null)
                 {
                     q.Cast(q.GetPrediction(jungleMob).CastPosition);
-                    Console.WriteLine("jg clear q");
+                    //Console.WriteLine("jg clear q");
                 }
             }
 
@@ -460,7 +460,7 @@
                         .Any())
                 {
                     e.Cast();
-                    Console.WriteLine("jg clear e");
+                    //Console.WriteLine("jg clear e");
                 }
             }
         }
@@ -482,20 +482,20 @@
                 || MinionManager.GetMinions(300F, MinionTypes.All, MinionTeam.Neutral, MinionOrderTypes.MaxHealth).Any()))
             {
                 zedItems.UseItemsLaneClear();
-                Console.WriteLine("lane clear item");
+                //Console.WriteLine("lane clear item");
             }
 
             if (shadows.GetShadows().Any())
             {
                 shadows.LaneClear(actionQueue, laneClearQueue);
-                Console.WriteLine("lane clear item");
+                //Console.WriteLine("lane clear item");
                 return;
             }
 
             if (w.UseOnLaneClear)
             {
                 WlaneClear();
-                Console.WriteLine("w lane clear");
+                //Console.WriteLine("w lane clear");
                 return;
             }
             else
@@ -512,7 +512,7 @@
                             () => true,
                             () => e.Cast(),
                             () => !e.IsReady());
-                        Console.WriteLine("lane clear e");
+                        //Console.WriteLine("lane clear e");
                         return;
                     }
                 }
@@ -531,7 +531,7 @@
                             () => q.IsReady(),
                             () => q.Cast(farmLocation.Position),
                             () => !q.IsReady());
-                        Console.WriteLine("lane clear q");
+                        //Console.WriteLine("lane clear q");
                         return;
                     }
                 }
@@ -595,7 +595,7 @@
                         () => w.Instance.ToggleState != 0,
                         () => e.Cast(),
                         () => !e.IsReady());
-                    Console.WriteLine("w laneclear e 1");
+                    //Console.WriteLine("w laneclear e 1");
                     return;
                 }
                 else if (shortenWillHit >= param)
@@ -605,7 +605,7 @@
                         () => e.IsReady(),
                         () => e.Cast(),
                         () => !e.IsReady());
-                    Console.WriteLine("w laneclear e 2");
+                    //Console.WriteLine("w laneclear e 2");
                     return;
                 }
             }
@@ -647,7 +647,7 @@
                         () => w.Instance.ToggleState != 0,
                         () => q.Cast(extendedFarmLocation),
                         () => !q.IsReady());
-                    Console.WriteLine("w lancelear q 1");
+                    //Console.WriteLine("w lancelear q 1");
                     return;
                 }
                 else if (shortenWillHit >= param)
@@ -657,7 +657,7 @@
                         () => q.IsReady(),
                         () => q.Cast(shortenFarmLocation.Position),
                         () => !q.IsReady());
-                    Console.WriteLine("w laneclear q 2");
+                    //Console.WriteLine("w laneclear q 2");
                     return;
                 }
             }
@@ -687,7 +687,7 @@
                 {
                     PredictionOutput predictionOutput = q.GetPrediction(target);
                     actionQueue.EnqueueAction(lastHitQueue, () => q.IsReady(), () => q.Cast(predictionOutput.CastPosition), () => !q.IsReady());
-                    Console.WriteLine("lasthit q 1");
+                    //Console.WriteLine("lasthit q 1");
                     return;
                 }
             }
@@ -698,7 +698,7 @@
                     >= zedMenu.GetParamSlider("koreanzed.lasthitmenu.useeif"))
                 {
                     actionQueue.EnqueueAction(lastHitQueue, () => e.IsReady(), () => e.Cast(), () => !e.IsReady());
-                    Console.WriteLine("lasthit q 2");
+                    //Console.WriteLine("lasthit q 2");
                     return;
                 }
             }
@@ -738,12 +738,12 @@
             if (target != null && r.CanCast(target))
             {
                 r.Cast(target);
-                Console.WriteLine("force r 1");
+                //Console.WriteLine("force r 1");
             }
             else
             {
                 r.Cast(TargetSelector.GetTarget(r.Range, r.DamageType));
-                Console.WriteLine("force r 2");
+                //Console.WriteLine("force r 2");
             }
         }
     }

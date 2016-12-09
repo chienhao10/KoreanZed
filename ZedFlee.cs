@@ -25,11 +25,11 @@
             if (zedMenu.GetParamKeyBind("koreanzed.miscmenu.flee"))
             {
                 ObjectManager.Player.IssueOrder(GameObjectOrder.MoveTo, Game.CursorPos);
-                Console.WriteLine("flee 1");
+                //Console.WriteLine("flee 1");
                 zedShadows.Cast(Game.CursorPos);
-                Console.WriteLine("flee 2");
+                //Console.WriteLine("flee 2");
                 zedShadows.Switch();
-                Console.WriteLine("flee 3");
+                //Console.WriteLine("flee 3");
             }
         }
     }

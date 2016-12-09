@@ -89,7 +89,7 @@
             if (CanCast)
             {
                 w.Cast(position);
-                Console.WriteLine("public if CanCast W cast");
+                //Console.WriteLine("public if CanCast W cast");
                 lastTimeCast = Game.Time;
             }
         }
@@ -102,7 +102,7 @@
             }
 
             Cast(target.Position);
-            Console.WriteLine("target null, cast");
+            //Console.WriteLine("target null, cast");
         }
 
         public void Switch()
@@ -110,7 +110,7 @@
             if (CanSwitch)
             {
                 w.Cast();
-                Console.WriteLine("if CanSwitch, cast");
+                //Console.WriteLine("if CanSwitch, cast");
             }
         }
 
@@ -134,7 +134,7 @@
             if (!shadows.Any()
                 || (!q.UseOnCombo && !e.UseOnCombo)
                 || (!q.IsReady() && !e.IsReady()))
-                Console.WriteLine("shadow combo 1");
+                //Console.WriteLine("shadow combo 1");
             {
                 return;
             }
@@ -173,7 +173,7 @@
                         if (predictionOutput.Hitchance >= HitChance.Medium)
                         {
                             q.Cast(predictionOutput.CastPosition);
-                            Console.WriteLine("combo shadow 2 q");
+                            //Console.WriteLine("combo shadow 2 q");
                         }
                     }
                 }
@@ -185,7 +185,7 @@
                     if (target != null)
                     {
                         e.Cast();
-                        Console.WriteLine("combo shadow use e 3");
+                        //Console.WriteLine("combo shadow use e 3");
                     }
                 }
             }
@@ -238,7 +238,7 @@
                         if (predictionOutput.Hitchance >= HitChance.Medium)
                         {
                             q.Cast(predictionOutput.CastPosition);
-                            Console.WriteLine("shadow haras q 1");
+                            //Console.WriteLine("shadow haras q 1");
                         }
                     }
                 }
@@ -250,7 +250,7 @@
                     if (target != null)
                     {
                         e.Cast();
-                        Console.WriteLine("shadow haras e 2");
+                        //Console.WriteLine("shadow haras e 2");
                     }
                 }
             }
@@ -278,7 +278,7 @@
                         () => true,
                         () => e.Cast(),
                         () => !e.IsReady());
-                    Console.WriteLine("shadow lc e 1");
+                    //Console.WriteLine("shadow lc e 1");
                     return;
                 }
             }
@@ -314,13 +314,13 @@
                         () => CanCast,
                         () => Cast(shadow.Position),
                         () => !CanCast);
-                    Console.WriteLine("shadow lc w 2");
+                    //Console.WriteLine("shadow lc w 2");
                     actionQueue.EnqueueAction(
                         laneClearQueue,
                         () => w.Instance.ToggleState != 0,
                         () => q.Cast(extendedFarmLocation),
                         () => !q.IsReady());
-                    Console.WriteLine("shadow lc q 3");
+                    //Console.WriteLine("shadow lc q 3");
                     return;
                 }
                 else if (shortenWillHit >= param)
@@ -330,7 +330,7 @@
                         () => q.IsReady(),
                         () => q.Cast(shortenFarmLocation.Position),
                         () => !q.IsReady());
-                    Console.WriteLine("shadow lc q 4");
+                    //Console.WriteLine("shadow lc q 4");
                     return;
                 }
             }

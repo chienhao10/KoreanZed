@@ -50,7 +50,7 @@
                         || q.GetDamage(objAiHero) / 2 > objAiHero.Health))
                     {
                         q.Cast(predictionOutput.CastPosition);
-                        Console.WriteLine("ks q");
+                        //Console.WriteLine("ks q");
                     }
                 }
             }
@@ -60,7 +60,7 @@
                 if (player.GetEnemiesInRange(e.Range).Any(hero => !hero.IsDead && !hero.IsZombie && e.IsKillable(hero)))
                 {
                     e.Cast();
-                    Console.WriteLine("ks e");
+                    //Console.WriteLine("ks e");
                 }
             }
 
@@ -79,9 +79,9 @@
                     && player.GetAutoAttackDamage(target) > target.Health && player.Mana > w.ManaCost)
                 {
                     zedShadows.Cast(target.Position);
-                    Console.WriteLine("ks w 1");
+                    //Console.WriteLine("ks w 1");
                     zedShadows.Switch();
-                    Console.WriteLine("ks w 2");
+                    //Console.WriteLine("ks w 2");
                 }
             }
         }
